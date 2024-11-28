@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Guessing Game</title>
+    <style>
+        /* CSS Styling */
+        
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            /* Added a more modern font */
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            /* Gradient background */
+            color: #333333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            /* More prominent shadow */
+            animation: fadeIn 1.5s ease-in-out;
+            /* Smooth fade-in animation */
+        }
+        
+        h1 {
+            color: #4a4a4a;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .word {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 8px;
+            color: #555555;
+        }
+        
+        form {
+            margin-top: 30px;
+        }
+        
+        input[type="text"] {
+            padding: 12px;
+            font-size: 18px;
+            width: 60px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: 0.3s;
+            outline: none;
+        }
+        
+        input[type="text"]:focus {
+            border-color: #6c63ff;
+            /* Adds focus effect */
+            box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+        }
+        
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            color: #ffffff;
+            background: #6c63ff;
+            /* A vibrant color for buttons */
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        
+        button:hover {
+            background: #5147d9;
+            transform: scale(1.05);
+            /* Slight grow effect on hover */
+        }
+        
+        h2 {
+            color: #28a745;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        
+        h2+a {
+            text-decoration: none;
+            color: #6c63ff;
+            font-weight: bold;
+        }
+        
+        h2+a:hover {
+            text-decoration: underline;
+            color: #5147d9;
+        }
+        /* Add a subtle fade-in animation */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Word Guessing Game</h1>
+        <p>Word: <span class="word">{{ masked_word }}</span></p>
+        <p>Attempts Remaining: {{ attempts }}</p>
+        <p>Wrong Guesses: {{ wrong_guesses|join(", ") }}</p>
+
+        {% if game_over == "win" %}
+        <h2>🎉 You Win! The word was "{{ correct_word }}"</h2>
+        <a href="/?reset=1">Play Again</a> {% elif game_over == "lose" %}
+        <h2>😢 You Lost! The word was "{{ correct_word }}"</h2>
+        <a href="/?reset=1">Try Again</a> {% else %}
+        <form method="POST">
+            <label for="guess">Enter a Letter:</label>
+            <input type="text" id="guess" name="guess" maxlength="1" required>
+            <button type="submit">Guess</button>
+        </form>
+        {% endif %}
+    </div>
+</body>
+
+</html>

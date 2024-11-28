@@ -1,0 +1,52 @@
+word = {
+    "python": [
+        "It's a programming language.",
+        "It is named after a snake.",
+        "Used for web development, AI, and more."
+    ],
+    "flask": [
+        "A Python web framework.",
+        "Lightweight and easy to use.",
+        "Often compared to Django."
+    ],
+    "developer": [
+        "A person who writes code.",
+        "Another term for programmer.",
+        "They build software or apps."
+    ],
+    "algorithm": [
+        "A step-by-step process.",
+        "Used in programming and problem-solving.",
+        "Basis for many computer operations."
+    ],
+    "programming": [
+        "The act of writing code.",
+        "Involves logic and problem-solving.",
+        "A key skill for developers."
+    ],
+    "javascript": [
+        "A scripting language primarily for web.",
+        "Often paired with HTML and CSS.",
+        "Used to make websites interactive."
+    ],
+    "html": [
+        "The backbone of a webpage.",
+        "Used to structure web content.",
+        "Stands for HyperText Markup Language."
+    ],
+    "css": [
+        "Used for styling webpages.",
+        "Works with HTML to beautify content.",
+        "Stands for Cascading Style Sheets."
+    ],
+    "framework": [
+        "A set of tools for building applications.",
+        "Examples include Flask, Django, and React.",
+        "Makes development faster and organized."
+    ],
+    "backend": [
+        "The part of an application users don't see.",
+        "Handles data processing and storage.",
+        "Works with databases and APIs."
+    ]
+}
